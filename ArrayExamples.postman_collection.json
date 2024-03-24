@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "7a06aa3d-0cdc-48ed-989f-b03dcf4f8aed",
+		"name": "ArrayExamples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32325676",
+		"_collection_link": "https://lunar-space-974363.postman.co/workspace/Falguni~af1f8adf-ce03-4215-acf6-7709b437644b/collection/32325676-7a06aa3d-0cdc-48ed-989f-b03dcf4f8aed?action=share&source=collection_link&creator=32325676"
+	},
+	"item": [
+		{
+			"name": "Get Array",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data= pm.response.json()\r",
+							"\r",
+							"console.log(data[0].id)\r",
+							"console.log(data.length)\r",
+							"\r",
+							"for(i=0; i<data.length; i++){\r",
+							"    if(data[i].first_name == \"Furkan\"){\r",
+							"        console.log(data[i].first_name)\r",
+							"    }else{\r",
+							"        console.log(\"not found\")\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://thetestingworldapi.com/api/studentsDetails",
+					"protocol": "https",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"\r",
+							"pm.environment.set(\"id\",data.id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"sample string 2\",\r\n  \"middle_name\": \"sample string 3\",\r\n  \"last_name\": \"sample string 4\",\r\n  \"date_of_birth\": \"sample string 5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/studentsDetails",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/studentsDetails/{{id}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

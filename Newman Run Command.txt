@@ -1,0 +1,5 @@
+newman run ArrayExamples.postman_collection.json -e ArrayExamples.postman_environment.json
+
+newman run ArrayExamples.postman_collection.json -e ArrayExamples.postman_environment.json -r cli,html
+
+newman run ArrayExamples.postman_collection.json -e ArrayExamples.postman_environment.json -r cli,htmlextra
